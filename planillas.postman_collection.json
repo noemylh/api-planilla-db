@@ -1,0 +1,1225 @@
+{
+	"info": {
+		"_postman_id": "9381180a-ba39-44f2-b1e2-358eef98cceb",
+		"name": "planillas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "bono ✔️",
+			"item": [
+				{
+					"name": "ver",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/bono/ver/635f2cb20eec5b254178cecd",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"bono",
+								"ver",
+								"635f2cb20eec5b254178cecd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ver todos",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/bono/ver/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"bono",
+								"ver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":\"198273kj32jk3j23jk23jewSW\"}"
+						},
+						"url": {
+							"raw": "{{url}}/api/bono/eliminar/635f18f6bab1b3f93eb3db59",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"bono",
+								"eliminar",
+								"635f18f6bab1b3f93eb3db59"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"nombre\":\"15\",   \"cantidad\":1235,   \"porcentaje\":12,   \"fecha_aplicacion\":\"\",  \"empleado_id\":\"634ca66199d601dcd7a58cb7\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/bono/crear/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"bono",
+								"crear",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"nombre\":\"15\",   \"cantidad\":12,   \"porcentaje\":12,   \"fecha_aplicacion\":\"\",  \"empleado_id\":\"634ca66199d601dcd7a58c88\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/bono/actualizar/635f2cb20eec5b254178cecd",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"bono",
+								"actualizar",
+								"635f2cb20eec5b254178cecd"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "descuento ✔️",
+			"item": [
+				{
+					"name": "ver",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/descuento/ver/635f340171ed91b76b6c0f31",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"descuento",
+								"ver",
+								"635f340171ed91b76b6c0f31"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ver todos",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/descuento/ver/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"descuento",
+								"ver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":\"198273kj32jk3j23jk23jewSW\"}"
+						},
+						"url": {
+							"raw": "{{url}}/api/descuento/eliminar/635f33d671ed91b76b6c0f30",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"descuento",
+								"eliminar",
+								"635f33d671ed91b76b6c0f30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"nombre\":\"15\", \"porcentaje\":1235, \"fecha_aplicacion\": \"\", \"cantidad\": 11, \"empleado_id\":\"635f2b07c2db15bd96597d83\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/descuento/crear/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"descuento",
+								"crear",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"cantidad\": 11,\r\n        \"empleado_id\": \"635f2b07c2db15bd96597333\",\r\n        \"fecha_aplicacion\": \"\",\r\n        \"nombre\": \"15\",\r\n        \"porcentaje\": 1235 }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/descuento/actualizar/635f340171ed91b76b6c0f31",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"descuento",
+								"actualizar",
+								"635f340171ed91b76b6c0f31"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "familiar ✔️",
+			"item": [
+				{
+					"name": "ver",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/familiar/ver/635f3943a32dd9261bd722da",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"familiar",
+								"ver",
+								"635f3943a32dd9261bd722da"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ver todos",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/familiar/ver/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"familiar",
+								"ver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":\"198273kj32jk3j23jk23jewSW\"}"
+						},
+						"url": {
+							"raw": "{{url}}/api/familiar/eliminar/635f391da32dd9261bd722d9",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"familiar",
+								"eliminar",
+								"635f391da32dd9261bd722d9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"nombre_primero\":\"jose\",   \"nombre_segundo\": \"jose2\",   \"apellido_primero\": \"lopez\",   \"apellido_segundo\": \"lopez2\",   \"telefono1\": \"123\",   \"telefono2\": \"1234\",   \"parentesco\": \"her\",   \"empleado_id\": \"6358ce319bba031d1025ed57\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/familiar/crear/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"familiar",
+								"crear",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"nombre_primero\":\"jose\",   \"nombre_segundo\": \"jose3\",   \"apellido_primero\": \"lopez\",   \"apellido_segundo\": \"lopez2\",   \"telefono1\": \"123\",   \"telefono2\": \"1234\",   \"parentesco\": \"her\",   \"empleado_id\": \"635f3943a32dd9261bd722da\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/familiar/actualizar/635f3943a32dd9261bd722da",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"familiar",
+								"actualizar",
+								"635f3943a32dd9261bd722da"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "hora extra ✔️",
+			"item": [
+				{
+					"name": "ver",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/hora_extra/ver/635f3dd069529fcbb77ec03d",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"hora_extra",
+								"ver",
+								"635f3dd069529fcbb77ec03d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ver todos",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/hora_extra/ver/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"hora_extra",
+								"ver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":\"198273kj32jk3j23jk23jewSW\"}"
+						},
+						"url": {
+							"raw": "{{url}}/api/hora_extra/eliminar/635f2b17c2db15bd96597d85",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"hora_extra",
+								"eliminar",
+								"635f2b17c2db15bd96597d85"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cantidad\": 1,\r\n    \"fecha\": \"\",\r\n    \"planilla_id\": \"635f2b17c2db15bd96597d84\",\r\n    \"empleado_id\":\"635f2b17c2db15bd96597d84\",\r\n    \"valor_calculo\": 400\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/hora_extra/crear/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"hora_extra",
+								"crear",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cantidad\": 1111,\r\n    \"fecha\": \"\",\r\n    \"planilla_id\": \"635f2b17c2db15bd96597d84\",\r\n    \"empleado_id\":\"635f2b17c2db15bd96597666\",\r\n    \"valor_calculo\": 400\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/hora_extra/actualizar/635f3dd069529fcbb77ec03d",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"hora_extra",
+								"actualizar",
+								"635f3dd069529fcbb77ec03d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "puesto ✔️",
+			"item": [
+				{
+					"name": "ver",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/puesto/ver/635f43c82140fea39d48197c",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"puesto",
+								"ver",
+								"635f43c82140fea39d48197c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ver todos",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/puesto/ver/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"puesto",
+								"ver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":\"198273kj32jk3j23jk23jewSW\"}"
+						},
+						"url": {
+							"raw": "{{url}}/api/puesto/eliminar/635f43c82140fea39d48197c",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"puesto",
+								"eliminar",
+								"635f43c82140fea39d48197c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bonos\": 2,\r\n    \"factor_hora_extra\": 1.5,\r\n    \"horas\": 8,\r\n    \"nombre\": \"atencion al cliente\",\r\n    \"precio\": 19,\r\n    \"sueldo\": 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/puesto/crear/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"puesto",
+								"crear",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bonos\": 2,\r\n    \"factor_hora_extra\": 1.5,\r\n    \"horas\": 8,\r\n    \"nombre\": \"atencion al cliente\",\r\n    \"precio\": 19,\r\n    \"sueldo\": 1001\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/puesto/actualizar/635f44342140fea39d48197d",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"puesto",
+								"actualizar",
+								"635f44342140fea39d48197d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "planilla ✔️",
+			"item": [
+				{
+					"name": "ver",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/planilla/ver/635f4a69a2b4a9389a8c3393",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"planilla",
+								"ver",
+								"635f4a69a2b4a9389a8c3393"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ver todos",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/planilla/ver/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"planilla",
+								"ver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":\"198273kj32jk3j23jk23jewSW\"}"
+						},
+						"url": {
+							"raw": "{{url}}/api/planilla/eliminar/635f2b35c2db15bd96597d87",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"planilla",
+								"eliminar",
+								"635f2b35c2db15bd96597d87"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dia_pago\": 1,\r\n    \"empleado_id\": \"635f2b35c2db15bd96597d86\",\r\n    \"monto_ordinario\": 3000,\r\n    \"numero_de_documento_de_pago\": 1,\r\n    \"numero_de_pago\": 1,\r\n    \"numero_de_planilla\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/planilla/crear/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"planilla",
+								"crear",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dia_pago\": 1222,\r\n    \"empleado_id\": \"635f2b35c2db15bd96597d86\",\r\n    \"monto_ordinario\": 3000,\r\n    \"numero_de_documento_de_pago\": 1,\r\n    \"numero_de_pago\": 1,\r\n    \"numero_de_planilla\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/planilla/actualizar/635f4a69a2b4a9389a8c3393",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"planilla",
+								"actualizar",
+								"635f4a69a2b4a9389a8c3393"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "detalle_planilla ✔️",
+			"item": [
+				{
+					"name": "ver",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/detalle_planilla/ver/635f2b50c2db15bd96597d89",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"detalle_planilla",
+								"ver",
+								"635f2b50c2db15bd96597d89"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ver todos",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/detalle_planilla/ver/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"detalle_planilla",
+								"ver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":\"198273kj32jk3j23jk23jewSW\"}"
+						},
+						"url": {
+							"raw": "{{url}}/api/detalle_planilla/eliminar/635f2b50c2db15bd96597d89",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"detalle_planilla",
+								"eliminar",
+								"635f2b50c2db15bd96597d89"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"anticipo\": 10,\r\n    \"bonificaciones\": 1,\r\n    \"iggs\": 1,\r\n    \"isr\": 1,\r\n    \"judicial\": \"nacional\",\r\n    \"otros\": 1,\r\n    \"planilla_id\": \"635f2b50c2db15bd96597d88\",\r\n    \"sueldo_extraordinario\": 1,\r\n    \"total_de_descuento\": 3000,\r\n    \"total_devengado\": 11,\r\n    \"total_liquido\": 19\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/detalle_planilla/crear/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"detalle_planilla",
+								"crear",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"anticipo\": 10,\r\n    \"bonificaciones\": 1,\r\n    \"igss\": 1,\r\n    \"isr\": 11,\r\n    \"judicial\": \"nacional\",\r\n    \"otros\": 1,\r\n    \"planilla_id\": \"635f2b50c2db15bd96597d88\",\r\n    \"sueldo_extraordinario\": 1,\r\n    \"total_de_descuento\": 3000,\r\n    \"total_devengado\": 21,\r\n    \"total_liquido\": 29\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/detalle_planilla/actualizar/635f5bd052141d5a255ceee2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"detalle_planilla",
+								"actualizar",
+								"635f5bd052141d5a255ceee2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "empleado ✔️",
+			"item": [
+				{
+					"name": "ver",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/empleado/ver/635f50e42e40467bbb930f30",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"empleado",
+								"ver",
+								"635f50e42e40467bbb930f30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ver todos",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/empleado/ver/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"empleado",
+								"ver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":\"198273kj32jk3j23jk23jewSW\"}"
+						},
+						"url": {
+							"raw": "{{url}}/api/empleado/eliminar/635f50e42e40467bbb930f30",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"empleado",
+								"eliminar",
+								"635f50e42e40467bbb930f30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"apellido_primero\": \"Vega2\",\r\n    \"apellido_segundo\": \"Pare2\",\r\n    \"carnet_igss\": \"2345678\",\r\n    \"dpi\": \"1234567890\",\r\n    \"estado\": \"casado\",\r\n    \"fecha_nacimiento\": \"Sun Oct 30 2022 19:54:43 GMT-0600 (hora estándar central)\",\r\n    \"jornada\": \"matutina\",\r\n    \"nit\": \"1234567\",\r\n    \"nombre_primero\": \"Mariana\",\r\n    \"nombre_segundo\": \"Mellisa\",\r\n    \"puesto_id\": \"635f2ae3c2db15bd96597d7e\",\r\n    \"telefono1\": \"1234567\",\r\n    \"telefono2\": \"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/empleado/crear/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"empleado",
+								"crear",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"apellido_primero\": \"Vega3\",\r\n    \"apellido_segundo\": \"Pare3\",\r\n    \"carnet_igss\": \"2345678\",\r\n    \"dpi\": \"1234567890\",\r\n    \"estado\": \"casado\",\r\n    \"fecha_nacimiento\": \"Sun Oct 30 2022 19:54:43 GMT-0600 (hora estándar central)\",\r\n    \"jornada\": \"matutina\",\r\n    \"nit\": \"1234567\",\r\n    \"nombre_primero\": \"Mariana\",\r\n    \"nombre_segundo\": \"Mellisa\",\r\n    \"puesto_id\": \"635f2ae3c2db15bd96597d7e\",\r\n    \"telefono1\": \"1234567\",\r\n    \"telefono2\": \"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/empleado/actualizar/635f50e42e40467bbb930f30",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"empleado",
+								"actualizar",
+								"635f50e42e40467bbb930f30"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
