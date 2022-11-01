@@ -5,6 +5,7 @@ from base64 import b64decode
 from json import dumps
 from werkzeug.exceptions import BadRequest, Unauthorized, Conflict, ServiceUnavailable
 from utils.environment import load_environment, get_environment
+from flask_cors import CORS
 
 #
 #   Create app and load ENV
@@ -27,9 +28,10 @@ dictConfig({
     }
 })
 app = Flask(__name__)
+CORS(app)
 app.config['SESSION_COOKIE_NAME'] = serverConfig['SessionName']
 app.config['MONGO_URI'] = get_environment("Mongo")
-app.secret_key = b64decode(serverConfig['Secret'])
+app.secret_key = b64decode(serverConfig['Secret']) 
 rooturl = serverConfig['AppRoot']
 
 logger = create_logger(app)

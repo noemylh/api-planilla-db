@@ -20,3 +20,4 @@ Pillow
 pybase64
 bcrypt
 flask-pymongo
+flask-cors
