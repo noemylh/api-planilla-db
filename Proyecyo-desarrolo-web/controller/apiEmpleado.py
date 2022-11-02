@@ -133,7 +133,7 @@ def post_api_empleado_add_discount():
         descuento = request.get_json()
         descuento_id = descuento["descuento_id"]
         empleado_id = descuento["empleado_id"]
-        mongo_data = get_db_empleado_add_discount(descuento_id)
+        mongo_data = get_db_empleado_add_discount(descuento_id, empleado_id)
 
         return mongo_data, 200
     except Exception as e:
@@ -145,7 +145,7 @@ def post_api_empleado_remove_discount():
         descuento = request.get_json()
         descuento_id = descuento["descuento_id"]
         empleado_id = descuento["empleado_id"]
-        mongo_data = get_db_empleado_remove_discount(descuento_id)
+        mongo_data = get_db_empleado_remove_discount(descuento_id,empleado_id)
 
         return mongo_data, 200
     except Exception as e:
