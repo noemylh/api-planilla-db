@@ -25,12 +25,12 @@ def create_usuario(id_empleado, nombre_usuario, contraseña, correo):
     if get_usuario(correo) != None:
         raise Exception("Ya existe un usuario con este correo")
 
-    usuario = db.find_one_and_update({"_id":ObjectId(id_empleado)},{"$push":{"usuario": {"nombre_usuario":nombre_usuario, "correo":correo, "contraseña": contraseña, "status" : 1}}})
+    usuario = db.find_one_and_update({"_id":ObjectId(id_empleado)},{"$push":{"usuario":{"nombre_usuario":nombre_usuario, "correo":correo, "contraseña": contraseña, "status" : 1}}})
 
     return usuario
 
 def update_usuario(contraseña, correo):
-    usuario = db.find_one_and_update({"usuario.correo":correo}, {"$set":{"usuario.contraseña":contraseña}})
+    usuario = db.find_one_and_update({"usuario.correo":correo}, {"$set":{"usuario.$.contraseña":contraseña}})
 
     return usuario
 

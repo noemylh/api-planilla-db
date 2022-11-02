@@ -11,20 +11,20 @@ from model.usuario import get_usuario, delete_usuario, create_usuario, update_us
 serverConfig = get_environment("Server")
 api_usuario = Blueprint("api_usuario", __name__)
 
-@api_usuario.route("/usuario/actualizar/<string:id>", methods=["PUT"])
-def update_api_usuario(id):
+@api_usuario.route("/usuario/actualizar/", methods=["PUT"])
+def update_api_usuario():
     try:
         usuario = request.get_json()
 
-        nombre_usuario = usuario["nombre_usuario"]
         contraseña = usuario["contraseña"]
         correo = usuario["correo"]
 
-        mongo_data = update_db_usuario(id, nombre_usuario, contraseña, correo)
+        mongo_data = update_db_usuario(contraseña, correo)
 
         return mongo_data, 200
 
     except Exception as e:
+        traceback.print_exc()
         abort(http_error_dict[type(e).__name__])
 
 @api_usuario.route("/usuario/crear/", methods=["POST"])
@@ -141,16 +141,18 @@ def create_db_usuario(id_empleado, nombre_usuario, contraseña, correo):
 
     return response
 
-def update_db_usuario(id_empleado, nombre_usuario, contraseña, correo):
+def update_db_usuario(contraseña, correo):
+    logger = current_app.logger
     data = None
     mensaje = ""
     status = "Success"
     response = {}
     try:
-        resultado = update_usuario(id_empleado, nombre_usuario, contraseña, correo)
+        resultado = update_usuario(contraseña, correo)
+        logger.info(resultado)
 
         if resultado:
-            data = json.loads(json.dumps(get_usuario(id_empleado), default=json_util.default))
+            data = json.loads(json.dumps(get_usuario(correo), default=json_util.default))
         else:
             data = None
 
