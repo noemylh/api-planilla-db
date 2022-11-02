@@ -1,9 +1,7 @@
 from main import app
-from bson import json_util
-from flask import Blueprint, session, abort, request, jsonify
+from flask import Blueprint, abort
 from flask import current_app
 from utils.config import http_error_dict
-from validator import validate
 from utils.environment import get_environment
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -50,7 +48,7 @@ def delete_puesto(id):
     
     return puesto
 
-def create_puesto(sueldo, precio, nombre, horas, factor_hora_extra, bonos):
+def create_puesto(sueldo, precio, nombre, horas, factor_hora_extra):
     # VALIDACIONES
 
     if sueldo < 0:
@@ -67,9 +65,6 @@ def create_puesto(sueldo, precio, nombre, horas, factor_hora_extra, bonos):
 
     if factor_hora_extra < 0:
         raise Exception('Factor hora extra debe ser positivo.')
-
-    if bonos < 0:
-        raise Exception('El numero de bonos debe ser positivo.')
 
     # existe puesto con el mismo nombre
     if get_puesto_por_nombre(nombre) != None:
@@ -77,11 +72,11 @@ def create_puesto(sueldo, precio, nombre, horas, factor_hora_extra, bonos):
 
     # INSERTAR
 
-    puesto = db.insert_one({"sueldo": sueldo, "precio": precio, "nombre": nombre, "horas": horas, "factor_hora_extra": factor_hora_extra, "bonos": bonos})
+    puesto = db.insert_one({"sueldo": sueldo, "precio": precio, "nombre": nombre, "horas": horas, "factor_hora_extra": factor_hora_extra})
     
     return puesto
 
-def update_puesto(id, sueldo, precio, nombre, horas, factor_hora_extra, bonos):
+def update_puesto(id, sueldo, precio, nombre, horas, factor_hora_extra):
 
     # VALIDACIONES
 
@@ -99,9 +94,6 @@ def update_puesto(id, sueldo, precio, nombre, horas, factor_hora_extra, bonos):
 
     if factor_hora_extra < 0:
         raise Exception('Factor hora extra debe ser positivo.')
-
-    if bonos < 0:
-        raise Exception('El numero de bonos debe ser positivo.')
 
     # existe puesto con el mismo nombre y distinto ID
     if get_puesto_por_nombre_y_id_distinto(nombre, id) != None:
@@ -111,6 +103,6 @@ def update_puesto(id, sueldo, precio, nombre, horas, factor_hora_extra, bonos):
 
     puesto = db.find_one({"_id":ObjectId(id)})
 
-    puesto = db.update_one({"_id":ObjectId(id)}, {"$set": {"sueldo": sueldo, "precio": precio, "nombre": nombre, "horas": horas, "factor_hora_extra": factor_hora_extra, "bonos": bonos}})
+    puesto = db.update_one({"_id":ObjectId(id)}, {"$set": {"sueldo": sueldo, "precio": precio, "nombre": nombre, "horas": horas, "factor_hora_extra": factor_hora_extra}})
     
     return puesto

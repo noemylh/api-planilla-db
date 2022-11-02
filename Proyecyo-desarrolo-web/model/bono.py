@@ -1,10 +1,4 @@
 from main import app
-from bson import json_util
-from flask import Blueprint, session, abort, request, jsonify
-from flask import current_app
-from utils.config import http_error_dict
-from validator import validate
-from utils.environment import get_environment
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
@@ -26,7 +20,7 @@ def delete_bono(id):
     
     return bono
 
-def create_bono( nombre,   cantidad,   porcentaje,   fecha_aplicacion,  empleado_id ):
+def create_bono( nombre,   cantidad,   porcentaje,   fecha_aplicacion ):
 
     if len(nombre) >100:
         raise Exception('Nombre excede los 100 caracteres permitidos.')
@@ -40,10 +34,10 @@ def create_bono( nombre,   cantidad,   porcentaje,   fecha_aplicacion,  empleado
     if porcentaje < 0:
         raise Exception('debe ser positivo.')
 
-    bono = db.insert_one({ "nombre":nombre,   "cantidad":cantidad,   "porcentaje":porcentaje,   "fecha_aplicacion":fecha_aplicacion,  "empleado_id":ObjectId(empleado_id) })
+    bono = db.insert_one({ "nombre":nombre,   "cantidad":cantidad,   "porcentaje":porcentaje,   "fecha_aplicacion":fecha_aplicacion })
     return bono
 
-def update_bono(id, nombre,   cantidad,   porcentaje,   fecha_aplicacion,  empleado_id):
+def update_bono(id, nombre,   cantidad,   porcentaje,   fecha_aplicacion):
 
     if len(nombre) >100:
         raise Exception('Nombre excede los 100 caracteres permitidos.')
@@ -57,6 +51,6 @@ def update_bono(id, nombre,   cantidad,   porcentaje,   fecha_aplicacion,  emple
     if porcentaje < 0:
         raise Exception('debe ser positivo.')
 
-    bono = db.update_one({"_id":ObjectId(id)}, {"$set": { "nombre":nombre,   "cantidad":cantidad,   "porcentaje":porcentaje,   "fecha_aplicacion":fecha_aplicacion,  "empleado_id":ObjectId(empleado_id)  } })
+    bono = db.update_one({"_id":ObjectId(id)}, {"$set": { "nombre":nombre,   "cantidad":cantidad,   "porcentaje":porcentaje,   "fecha_aplicacion":fecha_aplicacion  } })
     
     return bono

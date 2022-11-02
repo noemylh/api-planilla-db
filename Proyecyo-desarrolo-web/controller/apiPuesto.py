@@ -1,8 +1,5 @@
-import bcrypt
-from flask import Blueprint, session, abort, request, jsonify
-from flask import current_app
+from flask import Blueprint, abort, request
 from utils.config import http_error_dict
-from validator import validate
 from utils.environment import get_environment
 from bson import json_util
 import json
@@ -17,14 +14,13 @@ def update_api_puesto(id):
     try:
         puesto = request.get_json()
 
-        bonos = puesto["bonos"]
         factor_hora_extra = puesto["factor_hora_extra"]
         horas = puesto["horas"]
         nombre = puesto["nombre"]
         precio = puesto["precio"]
         sueldo = puesto["sueldo"]
 
-        mongo_data = update_db_puesto(id, bonos, factor_hora_extra,   horas,   nombre,   precio,  sueldo)
+        mongo_data = update_db_puesto(id, factor_hora_extra,   horas,   nombre,   precio,  sueldo)
             
         return mongo_data, 200
 
@@ -37,14 +33,13 @@ def create_api_puesto():
     try:
         puesto = request.get_json()
 
-        bonos = puesto["bonos"]
         factor_hora_extra = puesto["factor_hora_extra"]
         horas = puesto["horas"]
         nombre = puesto["nombre"]
         precio = puesto["precio"]
         sueldo = puesto["sueldo"]
 
-        mongo_data = create_db_puesto(bonos, factor_hora_extra,   horas,   nombre,   precio,  sueldo)
+        mongo_data = create_db_puesto(factor_hora_extra,   horas,   nombre,   precio,  sueldo)
             
         return mongo_data, 200
 
@@ -165,13 +160,13 @@ def delete_db_puesto(id):
     
     return response
 
-def create_db_puesto(bonos, factor_hora_extra,   horas,   nombre,   precio,  sueldo):
+def create_db_puesto(factor_hora_extra,   horas,   nombre,   precio,  sueldo):
     data = None
     mensaje = ""
     status = "Success"
     response = {}
     try:
-        resultado = create_puesto(sueldo, precio, nombre, horas, factor_hora_extra,  bonos)
+        resultado = create_puesto(sueldo, precio, nombre, horas, factor_hora_extra)
 
         if resultado:
             data =  json.loads(json.dumps(get_puesto(resultado.inserted_id), default=json_util.default))
@@ -190,13 +185,13 @@ def create_db_puesto(bonos, factor_hora_extra,   horas,   nombre,   precio,  sue
     return response
 
 
-def update_db_puesto(id, bonos, factor_hora_extra,   horas,   nombre,   precio,  sueldo):
+def update_db_puesto(id, factor_hora_extra,   horas,   nombre,   precio,  sueldo):
     data = None
     mensaje = ""
     status = "Success"
     response = {}
     try:
-        resultado = update_puesto(id, sueldo, precio, nombre, horas, factor_hora_extra,  bonos)
+        resultado = update_puesto(id, sueldo, precio, nombre, horas, factor_hora_extra)
 
         if resultado:
             data =  json.loads(json.dumps(get_puesto(id), default=json_util.default))

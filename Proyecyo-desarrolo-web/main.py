@@ -47,11 +47,11 @@ type_response = "application/json"
 #                              #
 ################################
 
-from model.user import user_data
-app.register_blueprint(user_data, url_prefix=rooturl)
-
 from model.puesto import prueba_data
 app.register_blueprint(prueba_data, url_prefix=rooturl)
+
+from controller.apiUsuario import api_usuario
+app.register_blueprint(api_usuario, url_prefix=rooturl)
 
 from controller.apiBono import api_bono
 app.register_blueprint(api_bono, url_prefix=rooturl)

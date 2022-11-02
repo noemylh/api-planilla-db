@@ -1,8 +1,6 @@
 import bcrypt
-from flask import Blueprint, session, abort, request, jsonify
-from flask import current_app
+from flask import Blueprint, abort, request
 from utils.config import http_error_dict
-from validator import validate
 from utils.environment import get_environment
 from bson import json_util
 import json
