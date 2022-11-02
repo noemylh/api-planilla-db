@@ -45,7 +45,7 @@ def create_api_familiar():
         telefono2 = familiar["telefono2"]
         empleado_id = familiar["empleado_id"]
 
-        mongo_data = create_db_familiar(nombre_primero,nombre_segundo,   apellido_primero,   apellido_segundo,   telefono1,   telefono2,   parentesco,   empleado_id)
+        mongo_data = create_db_familiar(apellido_primero, apellido_segundo, nombre_primero, nombre_segundo, parentesco, telefono1, telefono2, empleado_id)
             
         return mongo_data, 200
 
