@@ -20,10 +20,9 @@ def update_api_bono(id):
         cantidad = int(bono["cantidad"])
         porcentaje = bono["porcentaje"]
         fecha_aplicacion = bono["fecha_aplicacion"]
-        empleado_id = bono["empleado_id"]
 
-        mongo_data = update_db_bono(id, nombre, cantidad, porcentaje, fecha_aplicacion, empleado_id)
-            
+        mongo_data = update_db_bono(id, nombre, cantidad, porcentaje, fecha_aplicacion)
+
         return mongo_data, 200
 
     except Exception as e:
@@ -39,9 +38,8 @@ def create_api_bono():
         cantidad = int(bono["cantidad"])
         porcentaje = bono["porcentaje"]
         fecha_aplicacion = bono["fecha_aplicacion"]
-        empleado_id = bono["empleado_id"]
 
-        mongo_data = create_db_bono(nombre, cantidad, porcentaje, fecha_aplicacion, empleado_id)
+        mongo_data = create_db_bono(nombre, cantidad, porcentaje, fecha_aplicacion)
             
         return mongo_data, 200
 
@@ -163,13 +161,13 @@ def delete_db_bono(id):
     
     return response
 
-def create_db_bono(nombre, cantidad, porcentaje, fecha_aplicacion, empleado_id):
+def create_db_bono(nombre, cantidad, porcentaje, fecha_aplicacion):
     data = None
     mensaje = ""
     status = "Success"
     response = {}
     try:
-        resultado = create_bono(nombre, cantidad, porcentaje, fecha_aplicacion, empleado_id)
+        resultado = create_bono(nombre, cantidad, porcentaje, fecha_aplicacion)
 
         if resultado:
             data =  json.loads(json.dumps(get_bono(resultado.inserted_id), default=json_util.default))
@@ -188,13 +186,13 @@ def create_db_bono(nombre, cantidad, porcentaje, fecha_aplicacion, empleado_id):
     return response
 
 
-def update_db_bono(id, nombre, cantidad, porcentaje, fecha_aplicacion, empleado_id):
+def update_db_bono(id, nombre, cantidad, porcentaje, fecha_aplicacion):
     data = None
     mensaje = ""
     status = "Success"
     response = {}
     try:
-        resultado = update_bono(id, nombre, cantidad, porcentaje, fecha_aplicacion, empleado_id)
+        resultado = update_bono(id, nombre, cantidad, porcentaje, fecha_aplicacion)
 
         if resultado:
             data =  json.loads(json.dumps(get_bono(id), default=json_util.default))

@@ -17,12 +17,11 @@ def update_api_descuento(id):
 
         cantidad = int(descuento["cantidad"])
         nombre = descuento["nombre"]
-        empleado_id = descuento["empleado_id"]
         fecha_aplicacion = descuento["fecha_aplicacion"]
         porcentaje = int(descuento["porcentaje"])
 
-        mongo_data = update_db_descuento(id, nombre, cantidad, empleado_id, fecha_aplicacion, porcentaje)
-            
+        mongo_data = update_db_descuento(id, nombre, cantidad, fecha_aplicacion, porcentaje)
+
         return mongo_data, 200
 
     except Exception as e:
@@ -36,12 +35,11 @@ def create_api_descuento():
 
         nombre = descuento["nombre"]
         cantidad = int(descuento["cantidad"])
-        empleado_id = descuento["empleado_id"]
         fecha_aplicacion = descuento["fecha_aplicacion"]
         porcentaje = int(descuento["porcentaje"])
 
-        mongo_data = create_db_descuento(nombre, cantidad, empleado_id, fecha_aplicacion, porcentaje)
-            
+        mongo_data = create_db_descuento(nombre, cantidad, fecha_aplicacion, porcentaje)
+
         return mongo_data, 200
 
     except Exception as e:
@@ -53,7 +51,7 @@ def delete_api_descuento_by_id(id):
     try:
         if id:
             mongo_data = delete_db_descuento(id)
-            
+
             return mongo_data, 200
         else:
             abort(400)
@@ -66,7 +64,7 @@ def get_descuento_by_id(id):
     try:
         if id:
             mongo_data = get_db_descuento(id)
-            
+
             return mongo_data, 200
         else:
             abort(400)
@@ -79,7 +77,7 @@ def get_api_descuento_all():
     try:
         if id:
             mongo_data = get_db_descuento_all()
-            
+
             return mongo_data, 200
         else:
             abort(400)
@@ -99,7 +97,7 @@ def get_db_descuento(id):
             data =  json.loads(json.dumps(resultado, default=json_util.default))
         else:
             data = None
-        
+
         status = "Success"
     except Exception as e:
         status = "Error"
@@ -108,7 +106,7 @@ def get_db_descuento(id):
     response["data"] = data
     response["status"] = status
     response["mensaje"] = mensaje
-    
+
     return response
 
 def get_db_descuento_all():
@@ -125,7 +123,7 @@ def get_db_descuento_all():
             data =  json.loads(json.dumps(lista, default=json_util.default))
         else:
             data = None
-        
+
         status = "Success"
     except Exception as e:
         status = "Error"
@@ -134,7 +132,7 @@ def get_db_descuento_all():
     response["data"] = data
     response["status"] = status
     response["mensaje"] = mensaje
-    
+
     return response
 
 def delete_db_descuento(id):
@@ -149,7 +147,7 @@ def delete_db_descuento(id):
             data =  json.loads(json.dumps(resultado, default=json_util.default))
         else:
             data = None
-        
+
         status = "Success"
     except Exception as e:
         status = "Error"
@@ -158,22 +156,22 @@ def delete_db_descuento(id):
     response["data"] = data
     response["status"] = status
     response["mensaje"] = mensaje
-    
+
     return response
 
-def create_db_descuento(nombre, cantidad, empleado_id, fecha_aplicacion, porcentaje):
+def create_db_descuento(nombre, cantidad, fecha_aplicacion, porcentaje):
     data = None
     mensaje = ""
     status = "Success"
     response = {}
     try:
-        resultado = create_descuento(nombre, cantidad, empleado_id, fecha_aplicacion, porcentaje)
+        resultado = create_descuento(nombre, cantidad, fecha_aplicacion, porcentaje)
 
         if resultado:
             data =  json.loads(json.dumps(get_descuento(resultado.inserted_id), default=json_util.default))
         else:
             data = None
-        
+
         status = "Success"
     except Exception as e:
         status = "Error"
@@ -186,13 +184,13 @@ def create_db_descuento(nombre, cantidad, empleado_id, fecha_aplicacion, porcent
     return response
 
 
-def update_db_descuento(id, nombre, cantidad, empleado_id, fecha_aplicacion, porcentaje):
+def update_db_descuento(id, nombre, cantidad, fecha_aplicacion, porcentaje):
     data = None
     mensaje = ""
     status = "Success"
     response = {}
     try:
-        resultado = update_descuento(id, nombre, cantidad, empleado_id, fecha_aplicacion, porcentaje)
+        resultado = update_descuento(id, nombre, cantidad, fecha_aplicacion, porcentaje)
 
         if resultado:
             data =  json.loads(json.dumps(get_descuento(id), default=json_util.default))

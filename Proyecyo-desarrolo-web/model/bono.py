@@ -34,7 +34,7 @@ def create_bono( nombre,   cantidad,   porcentaje,   fecha_aplicacion ):
     if porcentaje < 0:
         raise Exception('debe ser positivo.')
 
-    bono = db.insert_one({ "nombre":nombre,   "cantidad":cantidad,   "porcentaje":porcentaje,   "fecha_aplicacion":fecha_aplicacion })
+    bono = db.insert_one({ "_id":ObjectId(),"nombre":nombre,   "cantidad":cantidad,   "porcentaje":porcentaje,   "fecha_aplicacion":fecha_aplicacion })
     return bono
 
 def update_bono(id, nombre,   cantidad,   porcentaje,   fecha_aplicacion):
