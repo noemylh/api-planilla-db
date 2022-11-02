@@ -24,15 +24,15 @@ def create_bono( nombre,   cantidad,   porcentaje,   fecha_aplicacion ):
 
     if len(nombre) >100:
         raise Exception('Nombre excede los 100 caracteres permitidos.')
-    
-    if cantidad < 0:
-        raise Exception('Precio debe ser positivo.')
+    if cantidad != "null":
+        if cantidad < 0:
+            raise Exception('Precio debe ser positivo.')
 
     if len(nombre) >= 100:
         raise Exception('Nombre excede los 100 caracteres permitidos.')
-
-    if porcentaje < 0:
-        raise Exception('debe ser positivo.')
+    if porcentaje != "null":
+        if porcentaje < 0 :
+            raise Exception('debe ser positivo.')
 
     bono = db.insert_one({ "_id":ObjectId(),"nombre":nombre,   "cantidad":cantidad,   "porcentaje":porcentaje,   "fecha_aplicacion":fecha_aplicacion })
     return bono
@@ -41,15 +41,15 @@ def update_bono(id, nombre,   cantidad,   porcentaje,   fecha_aplicacion):
 
     if len(nombre) >100:
         raise Exception('Nombre excede los 100 caracteres permitidos.')
-    
-    if cantidad < 0:
-        raise Exception('Precio debe ser positivo.')
+    if cantidad != "null":
+        if cantidad < 0:
+            raise Exception('Precio debe ser positivo.')
 
     if len(nombre) >= 100:
         raise Exception('Nombre excede los 100 caracteres permitidos.')
-
-    if porcentaje < 0:
-        raise Exception('debe ser positivo.')
+    if porcentaje != "null":
+        if porcentaje < 0 :
+            raise Exception('debe ser positivo.')
 
     bono = db.update_one({"_id":ObjectId(id)}, {"$set": { "nombre":nombre,   "cantidad":cantidad,   "porcentaje":porcentaje,   "fecha_aplicacion":fecha_aplicacion  } })
     

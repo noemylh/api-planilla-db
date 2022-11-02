@@ -1,7 +1,5 @@
 from main import app
-from flask import Blueprint, abort
-from flask import current_app
-from utils.config import http_error_dict
+from flask import Blueprint, current_app
 from utils.environment import get_environment
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -17,7 +15,7 @@ def get_usuario(correo):
     return usuario
 
 def delete_usuario(id):
-    usuario = db.find_one_and_delete({"_id":ObjectId(id)})
+    usuario = db.find_one_and_update({"_id":ObjectId(id)},{"$pull":{"usuario": {"status":1}}})
 
     return usuario
 
@@ -27,12 +25,12 @@ def create_usuario(id_empleado, nombre_usuario, contraseña, correo):
     if get_usuario(correo) != None:
         raise Exception("Ya existe un usuario con este correo")
 
-    usuario = db.find_one_and_update({"_id":ObjectId(id_empleado)},{"$push":{"usuario": [{"nombre_usuario":nombre_usuario, "correo":correo, "contraseña": contraseña}]}})
+    usuario = db.find_one_and_update({"_id":ObjectId(id_empleado)},{"$push":{"usuario": {"nombre_usuario":nombre_usuario, "correo":correo, "contraseña": contraseña, "status" : 1}}})
 
     return usuario
 
-def update_usuario(id_empleado, nombre_usuario, contraseña, correo):
-    usuario = db.find_one_and_update({"usuario.correo":correo}, {"$set":{"contraseña":contraseña}})
+def update_usuario(contraseña, correo):
+    usuario = db.find_one_and_update({"usuario.correo":correo}, {"$set":{"usuario.contraseña":contraseña}})
 
     return usuario
 

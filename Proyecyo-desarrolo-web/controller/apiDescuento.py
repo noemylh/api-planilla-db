@@ -15,10 +15,10 @@ def update_api_descuento(id):
     try:
         descuento = request.get_json()
 
-        cantidad = int(descuento["cantidad"])
+        cantidad = int(descuento["cantidad"]) if descuento["cantidad"].isdigit() else descuento["cantidad"]
         nombre = descuento["nombre"]
         fecha_aplicacion = descuento["fecha_aplicacion"]
-        porcentaje = int(descuento["porcentaje"])
+        porcentaje = int(descuento["cantidad"]) if descuento["cantidad"].isdigit() else descuento["cantidad"]
 
         mongo_data = update_db_descuento(id, nombre, cantidad, fecha_aplicacion, porcentaje)
 
@@ -34,9 +34,9 @@ def create_api_descuento():
         descuento = request.get_json()
 
         nombre = descuento["nombre"]
-        cantidad = int(descuento["cantidad"])
+        cantidad = int(descuento["cantidad"]) if descuento["cantidad"].isdigit() else descuento["cantidad"]
         fecha_aplicacion = descuento["fecha_aplicacion"]
-        porcentaje = int(descuento["porcentaje"])
+        porcentaje = int(descuento["porcentaje"]) if descuento["porcentaje"].isdigit() else descuento["porcentaje"]
 
         mongo_data = create_db_descuento(nombre, cantidad, fecha_aplicacion, porcentaje)
 

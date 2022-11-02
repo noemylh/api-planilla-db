@@ -5,7 +5,7 @@ from utils.environment import get_environment
 from bson import json_util
 import json
 
-from model.empleado import get_empleado_all, get_empleado, delete_empleado, create_empleado, update_empleado
+from model.empleado import get_empleado_all, get_empleado, delete_empleado, create_empleado, update_empleado, add_bono, remove_bono, add_descuento, remove_descuento
 
 serverConfig = get_environment("Server")
 api_empleado = Blueprint("api_empleado", __name__)
@@ -100,6 +100,54 @@ def get_api_empleado_all():
         else:
             abort(400)
 
+    except Exception as e:
+        abort(http_error_dict[type(e).__name__])
+
+@api_empleado.route("/empleado/agregar_bono/", methods=["POST"])
+def post_api_empleado_add_bonus():
+    try:
+        bono = request.get_json()
+        bono_id = bono["bono_id"]
+        empleado_id = bono["empleado_id"]
+        mongo_data = get_db_empleado_add_bonus(bono_id, empleado_id)
+
+        return mongo_data, 200
+    except Exception as e:
+        abort(http_error_dict[type(e).__name__])
+
+@api_empleado.route("/empleado/quitar_bono/", methods=["POST"])
+def post_api_empleado_remove_bonus():
+    try:
+        bono = request.get_json()
+        bono_id = bono["bono_id"]
+        empleado_id = bono["empleado_id"]
+        mongo_data = get_db_empleado_remove_bonus(bono_id, empleado_id)
+
+        return mongo_data, 200
+    except Exception as e:
+        abort(http_error_dict[type(e).__name__])
+
+@api_empleado.route("/empleado/agregar_descuento/", methods=["POST"])
+def post_api_empleado_add_discount():
+    try:
+        descuento = request.get_json()
+        descuento_id = descuento["descuento_id"]
+        empleado_id = descuento["empleado_id"]
+        mongo_data = get_db_empleado_add_discount(descuento_id)
+
+        return mongo_data, 200
+    except Exception as e:
+        abort(http_error_dict[type(e).__name__])
+
+@api_empleado.route("/empleado/quitar_descuento/", methods=["POST"])
+def post_api_empleado_remove_discount():
+    try:
+        descuento = request.get_json()
+        descuento_id = descuento["descuento_id"]
+        empleado_id = descuento["empleado_id"]
+        mongo_data = get_db_empleado_remove_discount(descuento_id)
+
+        return mongo_data, 200
     except Exception as e:
         abort(http_error_dict[type(e).__name__])
 
@@ -224,4 +272,104 @@ def update_db_empleado(id, apellido_primero, apellido_segundo, carnet_igss, dpi,
     response["status"] = status
     response["mensaje"] = mensaje
     
+    return response
+
+def get_db_empleado_add_bonus(bono_id, empleado_id):
+    data = None
+    mensaje = ""
+    status = "Success"
+    response = {}
+    try:
+        resultado = add_bono(bono_id, empleado_id)
+
+        if resultado:
+            data = json.loads(json.dumps(get_empleado(empleado_id), default=json_util.default))
+        else:
+            data = None
+
+        status = "Success"
+
+    except Exception as e:
+        status = "Error"
+        mensaje = str(e)
+
+    response["data"] = data
+    response["status"] = status
+    response["mensaje"] = mensaje
+
+    return response
+
+def get_db_empleado_remove_bonus(bono_id, empleado_id):
+    data = None
+    mensaje = ""
+    status = "Success"
+    response = {}
+    try:
+        resultado = remove_bono(bono_id, empleado_id)
+
+        if resultado:
+            data = json.loads(json.dumps(get_empleado(empleado_id), default=json_util.default))
+        else:
+            data = None
+
+        status = "Success"
+
+    except Exception as e:
+        status = "Error"
+        mensaje = str(e)
+
+    response["data"] = data
+    response["status"] = status
+    response["mensaje"] = mensaje
+
+    return response
+
+def get_db_empleado_add_discount(descuento_id, empleado_id):
+    data = None
+    mensaje = ""
+    status = "Success"
+    response = {}
+    try:
+        resultado = add_descuento(descuento_id, empleado_id)
+
+        if resultado:
+            data = json.loads(json.dumps(get_empleado(empleado_id), default=json_util.default))
+        else:
+            data = None
+
+        status = "Success"
+
+    except Exception as e:
+        status = "Error"
+        mensaje = str(e)
+
+    response["data"] = data
+    response["status"] = status
+    response["mensaje"] = mensaje
+
+    return response
+
+def get_db_empleado_remove_discount(descuento_id, empleado_id):
+    data = None
+    mensaje = ""
+    status = "Success"
+    response = {}
+    try:
+        resultado = remove_bono(descuento_id, empleado_id)
+
+        if resultado:
+            data = json.loads(json.dumps(get_empleado(empleado_id), default=json_util.default))
+        else:
+            data = None
+
+        status = "Success"
+
+    except Exception as e:
+        status = "Error"
+        mensaje = str(e)
+
+    response["data"] = data
+    response["status"] = status
+    response["mensaje"] = mensaje
+
     return response

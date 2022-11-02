@@ -1,4 +1,6 @@
-from flask import Blueprint, abort, request
+import traceback
+from flask import Blueprint, abort, request, current_app
+from model.empleado import get_empleado
 from utils.config import http_error_dict
 from utils.environment import get_environment
 from bson import json_util
@@ -25,7 +27,7 @@ def update_api_usuario(id):
     except Exception as e:
         abort(http_error_dict[type(e).__name__])
 
-@api_usuario.route("/usuario/crear", methods=["POST"])
+@api_usuario.route("/usuario/crear/", methods=["POST"])
 def create_api_usuario():
     try:
         usuario = request.get_json()
@@ -122,14 +124,16 @@ def create_db_usuario(id_empleado, nombre_usuario, contraseña, correo):
         resultado = create_usuario(id_empleado, nombre_usuario, contraseña, correo)
 
         if resultado:
-            data = json.load(json.dumps(get_usuario(resultado.inserted_id), default=json_util.default))
+            data = json.loads(json.dumps(get_empleado(id_empleado), default=json_util.default))
         else:
             data = None
 
         status = "Success"
     except Exception as e:
+        logger = current_app.logger
         status = "Error"
         mensaje = str(e)
+        logger.info(traceback.print_exc())
 
     response["data"] = data
     response["status"] = status

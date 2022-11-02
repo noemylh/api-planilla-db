@@ -23,16 +23,15 @@ def delete_descuento(id):
 
 def create_descuento( nombre, cantidad, fecha_aplicacion, porcentaje ):
 
-
     if len(nombre) >= 100:
         raise Exception('Nombre excede los 100 caracteres permitidos.')
+    if porcentaje != "null":
+        if porcentaje < 0 :
+            raise Exception('el numero debe de ser positivo')
 
-    if porcentaje < 0:
-        raise Exception('el numero debe de ser positivo')
-
-
-    if cantidad < 0:
-        raise Exception('El numero debe ser positivo.')
+    if cantidad != "null":
+        if cantidad < 0:
+            raise Exception('El numero debe ser positivo.')
 
     descuento = db.insert_one({ "nombre":nombre,   "porcentaje":porcentaje,   "fecha_aplicacion":fecha_aplicacion,   "cantidad": cantidad })
     return descuento
@@ -44,13 +43,15 @@ def update_descuento(id, nombre, cantidad, fecha_aplicacion, porcentaje):
     if len(nombre) >= 100:
         raise Exception('Nombre excede los 100 caracteres permitidos.')
 
+    if len(nombre) >= 100:
+        raise Exception('Nombre excede los 100 caracteres permitidos.')
+    if porcentaje != "null":
+        if porcentaje < 0 :
+            raise Exception('el numero debe de ser positivo')
 
-    if porcentaje < 0:
-        raise Exception('el numero debe de ser positivo')
-
-
-    if cantidad < 0:
-        raise Exception('El numero debe ser positivo.')
+    if cantidad != "null":
+        if cantidad < 0:
+            raise Exception('El numero debe ser positivo.')
 
 
     descuento = db.update_one({"_id":ObjectId(id)}, {"$set": {    "nombre":nombre,   "porcentaje":porcentaje, "fecha_aplicacion":fecha_aplicacion, "cantidad": cantidad } })
