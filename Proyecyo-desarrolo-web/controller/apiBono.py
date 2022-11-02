@@ -17,8 +17,8 @@ def update_api_bono(id):
         bono = request.get_json()
 
         nombre = bono["nombre"]
-        cantidad =  int(bono["cantidad"]) if bono["cantidad"].isdigit() else bono["cantidad"]
-        porcentaje = int(bono["porcentaje"]) if bono["porcentaje"].isdigit() else bono["porcentaje"]
+        cantidad =  int(bono["cantidad"]) if str(bono["cantidad"]).isdigit() else bono["cantidad"]
+        porcentaje = int(bono["porcentaje"]) if str(bono["porcentaje"]).isdigit() else bono["porcentaje"]
         fecha_aplicacion = bono["fecha_aplicacion"]
 
         mongo_data = update_db_bono(id, nombre, cantidad, porcentaje, fecha_aplicacion)
@@ -35,8 +35,8 @@ def create_api_bono():
         bono = request.get_json()
 
         nombre = bono["nombre"]
-        cantidad = int(bono["cantidad"]) if bono["cantidad"].isdigit() else bono["cantidad"]
-        porcentaje = int(bono["porcentaje"]) if bono["porcentaje"].isdigit() else bono["porcentaje"]
+        cantidad = int(bono["cantidad"]) if str(bono["cantidad"]).isdigit() else bono["cantidad"]
+        porcentaje = int(bono["porcentaje"]) if str(bono["porcentaje"]).isdigit() else bono["porcentaje"]
         fecha_aplicacion = bono["fecha_aplicacion"]
 
         mongo_data = create_db_bono(nombre, cantidad, porcentaje, fecha_aplicacion)
