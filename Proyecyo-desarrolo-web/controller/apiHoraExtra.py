@@ -16,11 +16,9 @@ def update_api_hora_extra(id):
 
         cantidad = hora_extra["cantidad"]
         fecha = hora_extra["fecha"]
-        planilla_id = hora_extra["planilla_id"]
-        valor_calculo = hora_extra["valor_calculo"]
         empleado_id = hora_extra["empleado_id"]
 
-        mongo_data = update_db_hora_extra(id, cantidad, fecha,   valor_calculo,   empleado_id,   planilla_id)
+        mongo_data = update_db_hora_extra(id, cantidad, fecha,   empleado_id)
             
         return mongo_data, 200
 
@@ -35,11 +33,9 @@ def create_api_hora_extra():
 
         cantidad = hora_extra["cantidad"]
         fecha = hora_extra["fecha"]
-        planilla_id = hora_extra["planilla_id"]
-        valor_calculo = hora_extra["valor_calculo"]
         empleado_id = hora_extra["empleado_id"]
 
-        mongo_data = create_db_hora_extra(cantidad, fecha,   valor_calculo,   empleado_id,   planilla_id)
+        mongo_data = create_db_hora_extra(cantidad, fecha,   empleado_id)
             
         return mongo_data, 200
 
@@ -160,13 +156,13 @@ def delete_db_hora_extra(id):
     
     return response
 
-def create_db_hora_extra(cantidad, fecha,   valor_calculo,   empleado_id,   planilla_id):
+def create_db_hora_extra(cantidad, fecha,   empleado_id):
     data = None
     mensaje = ""
     status = "Success"
     response = {}
     try:
-        resultado = create_hora_extra(cantidad, fecha,   valor_calculo,   empleado_id,   planilla_id)
+        resultado = create_hora_extra(cantidad, fecha,   empleado_id)
 
         if resultado:
             data =  json.loads(json.dumps(get_hora_extra(resultado.inserted_id), default=json_util.default))
@@ -185,13 +181,13 @@ def create_db_hora_extra(cantidad, fecha,   valor_calculo,   empleado_id,   plan
     return response
 
 
-def update_db_hora_extra(id, cantidad, fecha,   valor_calculo,   empleado_id,   planilla_id):
+def update_db_hora_extra(id, cantidad, fecha, empleado_id):
     data = None
     mensaje = ""
     status = "Success"
     response = {}
     try:
-        resultado = update_hora_extra(id, cantidad, fecha,   valor_calculo,   empleado_id,   planilla_id)
+        resultado = update_hora_extra(id, cantidad, fecha, empleado_id)
 
         if resultado:
             data =  json.loads(json.dumps(get_hora_extra(id), default=json_util.default))

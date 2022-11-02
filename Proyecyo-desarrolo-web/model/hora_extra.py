@@ -50,31 +50,12 @@ def delete_hora_extra(id):
     
     return hora_extra
 
-def create_hora_extra(cantidad,   fecha,   valor_calculo,  empleado_id, planilla_id):
-    hora_extra = db.insert_one({ "cantidad": cantidad,   "fecha": fecha,   "valor_calculo": valor_calculo,  "empleado_id": empleado_id, "planilla_id":planilla_id})
-    
-    if cantidad < 0:
-        raise Exception(' debe ser numeros positivos.')
-    
-    if valor_calculo < 0:
-        raise Exception('Precio debe ser positivo.')
+def create_hora_extra(cantidad,   fecha,   empleado_id):
+    hora_extra = db.insert_one({ "cantidad": cantidad,   "fecha": fecha,   "empleado_id": empleado_id})
 
-    if len(empleado_id) >= 100:
-        raise Exception('debe de ser numeros positivos')
     return hora_extra
 
-def update_hora_extra( hora_extra_id,   cantidad,   fecha,   valor_calculo,   empleado_id, planilla_id):
-    hora_extra = db.find_one({"_id":ObjectId(hora_extra_id)})
-
-    if cantidad < 0:
-        raise Exception(' debe ser numeros positivos.')
-    
-    if valor_calculo < 0:
-        raise Exception('Precio debe ser positivo.')
-
-    if len(empleado_id) >= 100:
-        raise Exception('debe de ser numeros positivos')
-
-    hora_extra = db.update_one({"_id":ObjectId(hora_extra_id)}, {"$set": { "cantidad": cantidad,   "fecha": fecha,   "valor_calculo": valor_calculo,   "empleado_id": empleado_id, "planilla_id":planilla_id}})
+def update_hora_extra( hora_extra_id,   cantidad,   fecha,   empleado_id):
+    hora_extra = db.update_one({"_id":ObjectId(hora_extra_id)}, {"$set": { "cantidad": cantidad,   "fecha": fecha,   "empleado_id": empleado_id}})
     
     return hora_extra
