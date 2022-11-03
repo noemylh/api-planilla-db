@@ -50,7 +50,7 @@ def create_empleado(telefono2, telefono1, puesto_id, nombre_segundo, nombre_prim
    if len(telefono2) > 15:
       raise Exception('El numero excedio de digitos.')
 
-   empleado = db.insert_one({"telefono2":telefono2,"telefono1":telefono1,"puesto_id":puesto_id,"nombre_segundo": nombre_segundo,"nombre_primero":nombre_primero,"nit":nit,"jornada":jornada,"fecha_nacimiento":fecha_nacimiento,"estado":estado,"dpi":dpi,"carnet_igss":carnet_igss,"apellido_segundo":apellido_segundo,"apellido_primero":apellido_primero, "usuario" : {}, "bonos" : [], "descuentos":[]})
+   empleado = db.insert_one({"telefono2":telefono2,"telefono1":telefono1,"puesto_id":puesto_id,"nombre_segundo": nombre_segundo,"nombre_primero":nombre_primero,"nit":nit,"jornada":jornada,"fecha_nacimiento":fecha_nacimiento,"estado":estado,"dpi":dpi,"carnet_igss":carnet_igss,"apellido_segundo":apellido_segundo,"apellido_primero":apellido_primero, "usuario" : [], "bonos" : [], "descuentos":[]})
 
    return empleado
 
